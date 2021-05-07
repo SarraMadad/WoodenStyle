@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -18,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        // get all products
+        // get all users
         $users = User::all();
 
         // load the view and pass the products
@@ -51,8 +51,8 @@ class UserController extends Controller
             'lastname' => 'required|string',
             'email' => 'nullable|string',
             'address' => 'required|string',
-            'password' => 'required|string', //TODO: if mix of letters and numbers ?
-            'is admin' => 'required|boolean' //TODO: check exists
+            'password' => 'required|string', //
+            'is_admin' => 'required|boolean' //TODO: check exists
         );
         $validator = Validator::make($request->all(), $rules);
 
@@ -122,7 +122,7 @@ class UserController extends Controller
             'firstname' => 'string',
             'lastname' => 'string',
             'address' => 'string',
-            'password' => 'string', //TODO: mix between letters and numbers ?
+            'password' => 'string',
             'is_admin' => 'boolean',
 
         );

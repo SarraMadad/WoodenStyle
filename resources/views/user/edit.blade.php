@@ -23,33 +23,30 @@
                 @csrf
                 <div class="mb-3">
                     <label for="userFirstNameInput" class="form-label">Prénom</label>
-                    <input type="text" id="firstname" name="firstname" class="form-control" required="required"
-                           placeholder="" value="{{ $user->firstname }}">
+                    <input type="text" id="firstname" name="firstname" class="form-control" required="required" value="{{ $user->firstname }}">
                 </div>
                 <div class="mb-3">
                     <label for="userLastNameInput" class="form-label">Nom</label>
-                    <input type="text" id="lastname" name="lastname" class="form-control" required="required"
-                           placeholder="" value="{{ $user->lastname }}">
+                    <input type="text" id="lastname" name="lastname" class="form-control" required="required" value="{{ $user->lastname }}">
                 </div>
                 <div class="mb-3">
                     <label for="userLastNameInput" class="form-label">Email</label>
-                    <input type="text" id="email" name="email" class="form-control" required="required"
-                           placeholder="" value="{{ $user->email }}">
+                    <input type="email" id="email" name="email" class="form-control" required="required" value="{{ $user->email }}">
                 </div>
                 <div class="mb-3">
                     <label for="userAddressInput" class="form-label">Adresse</label>
-                    <input type="text" id="address" name="address" class="form-control" required="required"
-                           placeholder="" value="{{ $user->address }}">
+                    <input type="text" id="address" name="address" class="form-control" required="required" value="{{ $user->address }}">
                 </div>
                 <div class="mb-3">
                     <label for="userPasswordInput" class="form-label">Mot de passe</label>
-                    <input type="text" id="password" name="password" class="form-control" required="required"
-                           placeholder="" value="{{ $user->password }}">
+                    <input type="password" id="password" name="password" class="form-control" required="required" value="{{ $user->password }}">
                 </div>
                 <div class="mb-3">
-                    <label for="userAdminInput" class="form-label">Adresse</label>
-                    <input type="text" id="is_admin" name="is_admin" class="form-control" required="required"
-                           placeholder="" value="{{ $user->is_admin }}">
+                    <label for="userAdminInput" class="form-label">est administrateur ?</label>
+                    <select name="is_admin" id="is_admin" required="required">
+                        <option value="0" {{ $user->is_admin == 0 ? 'selected' : '' }}>Non</option>
+                        <option value="1" {{ $user->is_admin == 1 ? 'selected' : '' }}>Oui</option>
+                    </select>
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary mb-3">Soumettre</button>

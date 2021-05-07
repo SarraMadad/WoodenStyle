@@ -21,33 +21,30 @@
                 @csrf
                 <div class="mb-3">
                     <label for="userFirstNameInput" class="form-label">Prénom</label>
-                    <input type="text" id="firstname" name="firstname" class="form-control" required="required"
-                           placeholder="">
+                    <input type="text" id="firstname" name="firstname" class="form-control" required="required">
                 </div>
                 <div class="mb-3">
                     <label for="userLastNameInput" class="form-label">Nom</label>
-                    <input type="text" id="lastname" name="lastname" class="form-control" required="required"
-                           placeholder="">
+                    <input type="text" id="lastname" name="lastname" class="form-control" required="required">
                 </div>
                 <div class="mb-3">
                     <label for="userEmailInput" class="form-label">Email</label>
-                    <input type="text" id="email" name="email" class="form-control" required="required"
-                           placeholder="">
+                    <input type="email" id="email" name="email" class="form-control" required="required">
                 </div>
                 <div class="mb-3">
                     <label for="userAddressInput" class="form-label">Adresse</label>
-                    <input type="text" id="email" name="email" class="form-control" required="required"
-                           placeholder="">
+                    <input type="text" id="address" name="address" class="form-control" required="required">
                 </div>
                 <div class="mb-3">
                     <label for="userPasswordInput" class="form-label">Mot de passe</label>
-                    <input type="text" id="password" name="password" class="form-control" required="required"
-                           placeholder="">
+                    <input type="password" id="password" name="password" class="form-control" required="required">
                 </div>
                 <div class="mb-3">
-                    <label for="userAdminInput" class="form-label">Prénom</label>
-                    <input type="text" id="isAdmin" name="isAdmin" class="form-control" required="required"
-                           placeholder="">
+                    <label for="userAdminInput" class="form-label">est administrateur ?</label>
+                    <select name="is_admin" id="is_admin" required="required">
+                        <option value="0">Non</option>
+                        <option value="1">Oui</option>
+                    </select>
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary mb-3">Soumettre</button>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 
@@ -26,3 +27,5 @@ Route::resource('/', DashboardController::class);
 Route::resource('category', CategoryController::class);
 
 Route::resource('product', ProductController::class);
+
+Route::resource('user', UserController::class);
