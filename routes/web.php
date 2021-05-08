@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\CommandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +27,9 @@ Route::domain('backoffice.woodenstyle.test')->group(function () {
     Route::resource('product', ProductController::class);
 
     Route::resource('user', UserController::class);
+
+    Route::resource('command', CommandController::class);
+
 });
 
 Route::domain('woodenstyle.test')->group(function () {

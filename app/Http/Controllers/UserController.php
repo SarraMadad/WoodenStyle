@@ -21,7 +21,7 @@ class UserController extends Controller
         // get all users
         $users = User::all();
 
-        // load the view and pass the products
+        // load the view and pass the users
         return View::make('backoffice.user.index')
             ->with('users', $users);
     }
@@ -51,7 +51,7 @@ class UserController extends Controller
             'lastname' => 'required|string',
             'email' => 'nullable|string',
             'address' => 'required|string',
-            'password' => 'required|string', //
+            'password' => 'required|string',
             'is_admin' => 'required|boolean' //TODO: check exists
         );
         $validator = Validator::make($request->all(), $rules);
