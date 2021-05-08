@@ -25,7 +25,7 @@ class ProductFactory extends Factory
         return [
             'name' => $this->faker->word(),
             'description' => $this->faker->word(),
-            'category_id' => Category::factory(),
+            'category_id' => Category::factory(), // call category factory to create new one
             'price' => $this->faker->numberBetween(50, 2000),
             'stock' => $this->faker->numberBetween(10, 100)
         ];

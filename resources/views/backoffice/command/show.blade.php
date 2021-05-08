@@ -20,11 +20,11 @@
                 <table class="table table-striped">
                     <tr>
                         <td> Montant total</td>
-                        <td> {{ $command->totalAmount }} </td>
+                        <td> {{ $command->totalAmount }} € </td>
                     </tr>
                     <tr>
                         <td> Client</td>
-                        <td> {{ $command->user_id }} </td> <!-- TODO : Afficher le nom du client -->
+                        <td> {{ $command->user->firstname . ' ' . $command->user->lastname }} </td>
                     </tr>
                     <tr>
                         <td> Statut</td>

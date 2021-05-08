@@ -17,4 +17,9 @@ class Command extends Model
         'product',
         'status'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class)->withDefault();
+    }
 }

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Command;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CommandFactory extends Factory
@@ -23,7 +24,7 @@ class CommandFactory extends Factory
     {
         return [
             'totalAmount' => $this->faker->numberBetween(10, 10000),
-            'user_id' => $this->faker->randomNumber(), // todo: call user factory
+            'user_id' => User::factory(), // call user factory to create new one
             'status' => $this->faker->word() //TODO: transform from string to enum
         ];
     }

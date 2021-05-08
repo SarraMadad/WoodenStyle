@@ -32,7 +32,7 @@
                 @foreach($commands as $key => $command)
                     <tr>
                         <td>{{ $command->id }}</td>
-                        <td>{{ $command->user_id }}</td>
+                        <td>{{ $command->user->firstname . ' ' . $command->user->lastname }}</td>
                         <td>{{ $command->totalAmount }} € </td>
                         <td>{{ $command->status}}</td>
                         <td>
