@@ -41,10 +41,13 @@
                     <input type="number" id="stock" name="stock" class="form-control" required="required"
                            placeholder="100" value="{{ $product->stock }}">
                 </div>
-                <div class="mb-3"> <!-- TODO : selection + option des categories en BDD -->
+                <div class="mb-3">
                     <label for="productCategoryInput" class="form-label">Categorie</label>
-                    <input type="number" id="category" name="category" class="form-control"
-                           value="{{ $product->category_id }}">
+                    <select class="form-control" name="category" id="category" required="required">
+                        @foreach($categories as $key => $category)
+                            <option value="{{$category->id}}"> {{$category->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary mb-3">Soumettre</button>

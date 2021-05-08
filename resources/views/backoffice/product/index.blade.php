@@ -39,7 +39,7 @@
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->price }} €</td>
                         <td>{{ $product->stock }} unité(s)</td>
-                        <td>{{ $product->category_id }}</td>
+                        <td>{{ $product->category->name ?? "N/A" }} </td>
                         <td>
                             <a class="btn btn-small btn-outline-dark"
                                href="{{ route('product.show', ["product" => $product]) }}">Details</a>

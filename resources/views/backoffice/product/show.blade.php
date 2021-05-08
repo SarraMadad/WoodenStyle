@@ -32,15 +32,15 @@
                     </tr>
                     <tr>
                         <td> Prix</td>
-                        <td> {{ $product->price }} </td>
+                        <td> {{ $product->price }} €</td>
                     </tr>
                     <tr>
                         <td> Stock</td>
-                        <td> {{ $product->stock }} </td>
+                        <td> {{ $product->stock }} unité(s)</td>
                     </tr>
                     <tr>
                         <td> Catégorie</td>
-                        <td> {{ $product->category_id }} </td> <!-- TODO : Afficher le nom de la catégorie -->
+                        <td> {{ $product->category->name ?? "N/A" }} </td>
                     </tr>
                 </table>
             </div>

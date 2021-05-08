@@ -48,7 +48,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="userAdminInput" class="form-label">est administrateur ?</label>
-                    <select name="is_admin" id="is_admin" required="required">
+                    <select class="form-control" name="is_admin" id="is_admin" required="required">
                         <option value="0" {{ $user->is_admin == 0 ? 'selected' : '' }}>Non</option>
                         <option value="1" {{ $user->is_admin == 1 ? 'selected' : '' }}>Oui</option>
                     </select>

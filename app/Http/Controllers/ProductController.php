@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -48,8 +49,12 @@ class ProductController extends Controller
      */
     public function create()
     {
+        // get all categories
+        $categories = Category::all();
+
         // load the create form (app/views/product/create.blade.php)
-        return View::make('backoffice.product.create');
+        return View::make('backoffice.product.create')
+            ->with('categories', $categories);
     }
 
     /**
@@ -115,10 +120,12 @@ class ProductController extends Controller
     {
         // get the product
         $product = Product::find($id);
+        $categories = Category::all();
 
         // show the edit form and pass the product
         return View::make('backoffice.product.edit')
-            ->with('product', $product);
+            ->with('product', $product)
+            ->with('categories', $categories);
     }
 
     /**
