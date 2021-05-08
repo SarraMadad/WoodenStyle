@@ -24,7 +24,7 @@ class ProductFactory extends Factory
         return [
             'name' => $this->faker->word(),
             'description' => $this->faker->word(),
-            'category_id' => $this->faker->randomNumber(),
+            'category_id' => $this->faker->randomNumber(), //todo: Call category factory
             'price' => $this->faker->numberBetween(50, 2000),
             'stock' => $this->faker->numberBetween(10, 100)
         ];

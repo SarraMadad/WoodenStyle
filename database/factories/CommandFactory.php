@@ -22,9 +22,8 @@ class CommandFactory extends Factory
     public function definition()
     {
         return [
-            'totalAmount' => $this->faker->numberBetween(10, 100000000),
-            'user_id' => $this->faker->randomNumber(),
-            'product' => $this->faker->word(), //TODO: many-to-many ?
+            'totalAmount' => $this->faker->numberBetween(10, 10000),
+            'user_id' => $this->faker->randomNumber(), // todo: call user factory
             'status' => $this->faker->word() //TODO: transform from string to enum
         ];
     }

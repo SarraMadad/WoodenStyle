@@ -22,7 +22,7 @@ class CommandController extends Controller
         $commands = Command::all();
 
         // load the view and pass the commands
-        return View::make('command.index')
+        return View::make('backoffice.command.index')
             ->with('commands', $commands);
     }
 
@@ -34,7 +34,7 @@ class CommandController extends Controller
     public function create()
     {
         // load the create form (app/views/command/create.blade.php)
-        return View::make('command.create');
+        return View::make('backoffice.command.create');
     }
 
     /**
@@ -68,7 +68,7 @@ class CommandController extends Controller
             $command->save();
 
             // redirect
-            return Redirect::to('product');
+            return Redirect::to('command');
         }
     }
 
@@ -84,7 +84,7 @@ class CommandController extends Controller
         $command = Command::find($id);
 
         // show the view and pass the command to it
-        return View::make('command.show')
+        return View::make('backoffice.command.show')
             ->with('command', $command);
     }
 
@@ -100,7 +100,7 @@ class CommandController extends Controller
         $command = Command::find($id);
 
         // show the edit form and pass the product
-        return View::make('command.edit')
+        return View::make('backoffice.command.edit')
             ->with('command', $command);
     }
 

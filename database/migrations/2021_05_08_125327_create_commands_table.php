@@ -15,11 +15,10 @@ class CreateCommandsTable extends Migration
     {
         Schema::create('commands', function (Blueprint $table) {
             $table->id();
-            $table->timestamps(); //TODO: to keep ?
             $table->float("totalAmount");
-            $table->foreignId("user_id")->nullable()->default(null);
-            $table->string("product"); //TODO: many-to-many ?
+            $table->foreignId("user_id");
             $table->string("status"); //TODO: transform from string to enum
+            $table->timestamps(); //TODO: add use soft delete
         });
     }
 
