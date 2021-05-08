@@ -3,7 +3,7 @@
 <body>
 <main>
 
-    @include('inc._menu')
+    @include('inc._adminMenu')
 
     <div class="p-5 bg-light">
         <div class="container">
@@ -39,7 +39,7 @@
                             <a class="btn btn-small btn-outline-dark"
                                href="{{ route('command.show', ["command" => $command]) }}">Details</a>
 
-                            <form class="mt-1" method="POST"
+                            <!-- <form class="mt-1" method="POST"
                                   action="{{route('command.destroy', ["command" => $command])}}">
                                 @csrf
                                 @method('DELETE')
@@ -48,7 +48,7 @@
                                     <input type="submit" class="btn btn-outline-danger delete-user"
                                            value="Supprimer">
                                 </div>
-                            </form>
+                            </form> -->
                         </td>
                     </tr>
                 @endforeach
