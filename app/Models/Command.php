@@ -13,13 +13,17 @@ class Command extends Model
 
     protected $fillable = [
         'totalAmount',
-        'user_id',
-        'product',
+        'user_id', //TODO: useless
         'status'
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class)->withDefault();
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
     }
 }

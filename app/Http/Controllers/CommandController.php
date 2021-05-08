@@ -48,7 +48,6 @@ class CommandController extends Controller
         // validate
         $rules = array(
             'totalAmount' => 'required|integer',
-            'product' => 'nullable|string', //TODO : many-to-many type ?
             'status' => 'required|string',
             'user_id' => 'nullable|integer' //TODO: check exists
         );
@@ -116,7 +115,6 @@ class CommandController extends Controller
         // validate
         $rules = array(
             'totalAmount' => 'integer',
-            'product' => 'nullable|string', //TODO: many-to-many type
             'status' => 'string', //TODO: tranform to enum
             'user_id' => 'nullable|integer' //TODO: check exists
         );
