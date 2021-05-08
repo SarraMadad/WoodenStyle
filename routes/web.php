@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -29,3 +30,5 @@ Route::resource('category', CategoryController::class);
 Route::resource('product', ProductController::class);
 
 Route::resource('user', UserController::class);
+
+Route::resource('command', CommandController::class);

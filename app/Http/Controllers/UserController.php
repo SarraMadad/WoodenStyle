@@ -21,7 +21,7 @@ class UserController extends Controller
         // get all users
         $users = User::all();
 
-        // load the view and pass the products
+        // load the view and pass the users
         return View::make('user.index')
             ->with('users', $users);
     }
@@ -87,7 +87,7 @@ class UserController extends Controller
         // get the user
         $user = User::find($id);
 
-        // show the view and pass the product to it
+        // show the view and pass the user to it
         return View::make('user.show')
             ->with('user', $user);
     }
@@ -103,7 +103,7 @@ class UserController extends Controller
         // get the user
         $user = User::find($id);
 
-        // show the edit form and pass the product
+        // show the edit form and pass the user
         return View::make('user.edit')
             ->with('user', $user);
     }

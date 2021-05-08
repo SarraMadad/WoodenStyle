@@ -20,7 +20,7 @@
                     <a class="nav-link" href="{{ route('user.index') }}">Utilisateurs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Commandes</a>
+                    <a class="nav-link" href="{{ route('command.index') }}">Commandes</a>
                 </li>
             </ul>
             <div class="text-center p-3">
