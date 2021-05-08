@@ -1,9 +1,9 @@
-@include('inc._header')
+@include('.inc._header')
 
 <body>
 <main>
 
-    @include('inc._menu')
+    @include('inc._adminMenu')
 
     <div class="p-5 bg-light">
         <div class="container">
@@ -43,7 +43,8 @@
                 </div>
                 <div class="mb-3"> <!-- TODO : selection + option des categories en BDD -->
                     <label for="productCategoryInput" class="form-label">Categorie</label>
-                    <input type="number" id="category" name="category" class="form-control" value="{{ $product->category_id }}">
+                    <input type="number" id="category" name="category" class="form-control"
+                           value="{{ $product->category_id }}">
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary mb-3">Soumettre</button>
@@ -52,4 +53,4 @@
         </div>
     </div>
 
-@include('inc._footer')
+@include('.inc._footer')

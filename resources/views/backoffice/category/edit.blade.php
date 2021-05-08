@@ -1,9 +1,9 @@
-@include('inc._header')
+@include('.inc._header')
 
 <body>
 <main>
 
-    @include('inc._menu')
+    @include('inc._adminMenu')
 
     <div class="p-5 bg-light">
         <div class="container">
@@ -38,4 +38,4 @@
         </div>
     </div>
 
-@include('inc._footer')
+@include('.inc._footer')

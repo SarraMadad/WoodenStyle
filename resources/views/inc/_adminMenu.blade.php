@@ -8,18 +8,24 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Catégories</a>
+                    <a class="nav-link" aria-current="page" href="{{ route('dashboard.index') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Mes commandes</a>
+                    <a class="nav-link" href="{{ route('product.index') }}">Produits</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Mon panier</a>
+                    <a class="nav-link" href="{{ route('category.index') }}">Catégories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.index') }}">Utilisateurs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Commandes</a>
                 </li>
             </ul>
             <div class="text-center p-3">
-                <a class="btn btn-outline-primary" href="{{ route('dashboard.index') }}">
-                    Espace Administrateur
+                <a class="btn btn-outline-primary" href="{{ route('client.index') }}">
+                    Espace Client
                 </a>
             </div>
         </div>

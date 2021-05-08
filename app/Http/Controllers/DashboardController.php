@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
 class DashboardController extends Controller
@@ -13,13 +12,13 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index(): \Illuminate\Contracts\View\View
     {
         // get all categories
         $categories = Category::all();
 
         // load the view and pass the categories
-        return View::make('dashboard.index')
+        return View::make('backoffice.dashboard.index')
             ->with('categories', $categories);
     }
 }

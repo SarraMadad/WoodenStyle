@@ -1,4 +1,4 @@
-@include('inc._header')
+@include('.inc._header')
 
 <body>
 <main>
@@ -9,11 +9,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <h1> Catégories </h1>
+                    <h1> Produits </h1>
                 </div>
                 <div class="col-md-3">
-                    <a class="btn btn-primary float-right" href="{{ route('category.create') }}" role="button"><i
-                            class="fa fa-plus-circle"></i> Ajouter une catégorie </a>
+                    <a class="btn btn-primary float-right" href="{{ route('product.create') }}" role="button"><i
+                            class="fa fa-plus-circle"></i> Ajouter un produit </a>
                 </div>
             </div>
         </div>
@@ -25,26 +25,30 @@
                 <tr>
                     <th scope="col"> ID</th>
                     <th scope="col"> Nom</th>
-                    <th scope="col"> Description</th>
+                    <th scope="col"> Prix</th>
+                    <th scope="col"> Stock</th>
+                    <th scope="col"> Catégorie</th>
                     <th scope="col"> Actions</th>
                 </tr>
                 </thead>
                 <tbody>
 
-                @foreach($categories as $key => $category)
+                @foreach($products as $key => $product)
                     <tr>
-                        <td>{{ $category->id }}</td>
-                        <td>{{ $category->name }}</td>
-                        <td>{{ $category->description }}</td>
+                        <td>{{ $product->id }}</td>
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->price }} €</td>
+                        <td>{{ $product->stock }} unité(s)</td>
+                        <td>{{ $product->category_id }}</td>
                         <td>
                             <a class="btn btn-small btn-outline-dark"
-                               href="{{ route('category.show', ["category" => $category]) }}">Details</a>
+                               href="{{ route('product.show', ["product" => $product]) }}">Details</a>
 
                             <a class="btn btn-small btn-outline-primary"
-                               href="{{ route('category.edit', ["category" => $category]) }}">Modifier</a>
+                               href="{{ route('product.edit', ["product" => $product]) }}">Modifier</a>
 
                             <form class="mt-1" method="POST"
-                                  action="{{route('category.destroy', ["category" => $category])}}">
+                                  action="{{route('product.destroy', ["product" => $product])}}">
                                 @csrf
                                 @method('DELETE')
 
@@ -62,4 +66,4 @@
         </div>
     </div>
 
-@include('inc._footer')
+@include('.inc._footer')

@@ -1,19 +1,19 @@
-@include('inc._header')
+@include('.inc._header')
 
 <body>
 <main>
 
-    @include('inc._menu')
+    @include('inc._adminMenu')
 
     <div class="p-5 bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <h1> Produits </h1>
+                    <h1> Clients </h1>
                 </div>
                 <div class="col-md-3">
-                    <a class="btn btn-primary float-right" href="{{ route('product.create') }}" role="button"><i
-                            class="fa fa-plus-circle"></i> Ajouter un produit </a>
+                    <a class="btn btn-primary float-right" href="{{ route('user.create') }}" role="button"><i
+                            class="fa fa-plus-circle"></i> Ajouter un utilisateur </a>
                 </div>
             </div>
         </div>
@@ -23,32 +23,32 @@
             <table class="table table-striped">
                 <thead class="thead">
                 <tr>
-                    <th scope="col"> ID </th>
-                    <th scope="col"> Nom </th>
-                    <th scope="col"> Prix </th>
-                    <th scope="col"> Stock </th>
-                    <th scope="col"> Catégorie </th>
+                    <th scope="col"> ID</th>
+                    <th scope="col"> Prénom</th>
+                    <th scope="col"> Nom</th>
+                    <th scope="col"> Email</th>
+                    <th scope="col"> Administrateur</th>
                     <th scope="col"> Actions</th>
                 </tr>
                 </thead>
                 <tbody>
 
-                @foreach($products as $key => $product)
+                @foreach($users as $key => $user)
                     <tr>
-                        <td>{{ $product->id }}</td>
-                        <td>{{ $product->name }}</td>
-                        <td>{{ $product->price }} € </td>
-                        <td>{{ $product->stock }} unité(s) </td>
-                        <td>{{ $product->category_id }}</td>
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->firstname }}</td>
+                        <td>{{ $user->lastname }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->is_admin == 0 ? 'Non' : 'Oui' }}</td>
                         <td>
                             <a class="btn btn-small btn-outline-dark"
-                               href="{{ route('product.show', ["product" => $product]) }}">Details</a>
+                               href="{{ route('user.show', ["user" => $user]) }}">Details</a>
 
                             <a class="btn btn-small btn-outline-primary"
-                               href="{{ route('product.edit', ["product" => $product]) }}">Modifier</a>
+                               href="{{ route('user.edit', ["user" => $user]) }}">Modifier</a>
 
                             <form class="mt-1" method="POST"
-                                  action="{{route('product.destroy', ["product" => $product])}}">
+                                  action="{{route('user.destroy', ["user" => $user])}}">
                                 @csrf
                                 @method('DELETE')
 
@@ -66,4 +66,4 @@
         </div>
     </div>
 
-@include('inc._footer')
+@include('.inc._footer')

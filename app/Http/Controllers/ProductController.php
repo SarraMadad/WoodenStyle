@@ -22,7 +22,22 @@ class ProductController extends Controller
         $products = Product::all();
 
         // load the view and pass the products
-        return View::make('product.index')
+        return View::make('backoffice.product.index')
+            ->with('products', $products);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function indexClient()
+    {
+        // get all products
+        $products = Product::all();
+
+        // load the view and pass the products
+        return View::make('index')
             ->with('products', $products);
     }
 
@@ -34,7 +49,7 @@ class ProductController extends Controller
     public function create()
     {
         // load the create form (app/views/product/create.blade.php)
-        return View::make('product.create');
+        return View::make('backoffice.product.create');
     }
 
     /**
@@ -86,7 +101,7 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         // show the view and pass the product to it
-        return View::make('product.show')
+        return View::make('backoffice.product.show')
             ->with('product', $product);
     }
 
@@ -102,7 +117,7 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         // show the edit form and pass the product
-        return View::make('product.edit')
+        return View::make('backoffice.product.edit')
             ->with('product', $product);
     }
 

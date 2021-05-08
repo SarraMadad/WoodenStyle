@@ -18,14 +18,19 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::domain('backoffice.woodenstyle.test')->group(function () {
+
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+
+    Route::resource('category', CategoryController::class);
+
+    Route::resource('product', ProductController::class);
+
+    Route::resource('user', UserController::class);
 });
 
-Route::resource('/', DashboardController::class);
+Route::domain('woodenstyle.test')->group(function () {
 
-Route::resource('category', CategoryController::class);
+    Route::get('/', [ProductController::class, 'indexClient'])->name('client.index');
 
-Route::resource('product', ProductController::class);
-
-Route::resource('user', UserController::class);
+});

@@ -22,7 +22,7 @@ class UserController extends Controller
         $users = User::all();
 
         // load the view and pass the products
-        return View::make('user.index')
+        return View::make('backoffice.user.index')
             ->with('users', $users);
     }
 
@@ -34,7 +34,7 @@ class UserController extends Controller
     public function create()
     {
         // load the create form (app/views/user/create.blade.php)
-        return View::make('user.create');
+        return View::make('backoffice.user.create');
     }
 
     /**
@@ -88,7 +88,7 @@ class UserController extends Controller
         $user = User::find($id);
 
         // show the view and pass the product to it
-        return View::make('user.show')
+        return View::make('backoffice.user.show')
             ->with('user', $user);
     }
 
@@ -104,7 +104,7 @@ class UserController extends Controller
         $user = User::find($id);
 
         // show the edit form and pass the product
-        return View::make('user.edit')
+        return View::make('backoffice.user.edit')
             ->with('user', $user);
     }
 

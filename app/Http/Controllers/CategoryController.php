@@ -22,7 +22,7 @@ class CategoryController extends Controller
         $categories = Category::all();
 
         // load the view and pass the categories
-        return View::make('category.index')
+        return View::make('backoffice.category.index')
             ->with('categories', $categories);
     }
 
@@ -34,7 +34,7 @@ class CategoryController extends Controller
     public function create()
     {
         // load the create form (app/views/category/create.blade.php)
-        return View::make('category.create');
+        return View::make('backoffice.category.create');
     }
 
     /**
@@ -80,7 +80,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         // show the view and pass the category to it
-        return View::make('category.show')
+        return View::make('backoffice.category.show')
             ->with('category', $category);
     }
 
@@ -96,7 +96,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         // show the edit form and pass the category
-        return View::make('category.edit')
+        return View::make('backoffice.category.edit')
             ->with('category', $category);
     }
 
