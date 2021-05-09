@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\CommandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
@@ -35,12 +36,16 @@ Route::domain('backoffice.woodenstyle.test')->group(function () {
 
 Route::domain('woodenstyle.test')->group(function () {
 
+    Route::get('/', [ProductController::class, 'indexClient'])->name('client.index');
+
     Route::get('/register', [AuthController::class, 'indexClient'])->name('client.register');
 
     Route::get('/login', [AuthController::class, 'indexClient'])->name('client.login');
 
-    Route::get('/', [ProductController::class, 'indexClient'])->name('client.index');
-
     Route::get('/category/{category_id}/products', [CategoryController::class, 'associateProducts'])->name('client.product');
+
+    Route::get('{user_id}/command', [CommandController::class, 'indexUserCommand'])->name('client.command');
+
+    Route::get('{user_id}/basket', [BasketController::class, 'indexUserBasket'])->name('client.basket.index');
 
 });

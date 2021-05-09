@@ -12,13 +12,13 @@ class Basket extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'user_id',
-        'category_id'
+        'totalAmount',
+        'user_id'
     ];
 
-    public function category()
+    public function products()
     {
-        return $this->belongsTo(Category::class)->withDefault();
+        return $this->belongsToMany(Product::class);
     }
 
     public function user()

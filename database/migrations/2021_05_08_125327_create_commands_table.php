@@ -17,8 +17,8 @@ class CreateCommandsTable extends Migration
             $table->id();
             $table->float("totalAmount");
             $table->foreignId("user_id");
-            $table->string("status"); //TODO: transform from string to enum
-            $table->timestamps(); //TODO: add use soft delete
+            $table->string("status");
+            $table->timestamps();
         });
     }
 

@@ -13,7 +13,7 @@ class Command extends Model
 
     protected $fillable = [
         'totalAmount',
-        'user_id', //TODO: useless
+        'user_id',
         'status'
     ];
 

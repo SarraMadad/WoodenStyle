@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Command;
-use Illuminate\Http\RedirectResponse;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -24,6 +25,25 @@ class CommandController extends Controller
         // load the view and pass the commands
         return View::make('backoffice.command.index')
             ->with('commands', $commands);
+    }
+
+    /**
+     * Display a listing of the resource of the user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexUserCommand(int $id)
+    {
+        // get all categories
+        $categories = Category::all();
+
+        // get all commands
+        $commands = Command::whereUserId($id)->get();
+
+        // load the view and pass the commands
+        return View::make('command')
+            ->with('commands', $commands)
+            ->with('categories', $categories);
     }
 
     /**
@@ -74,10 +94,10 @@ class CommandController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id  //\App\Models\Command  $command
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(int $id) //Command $command
+    public function show(int $id)
     {
         // get the command
         $command = Command::find($id);

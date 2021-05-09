@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Basket;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -18,14 +18,18 @@ class BasketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexUserBasket(int $id)
     {
-        // get all baskets
-        $baskets = Basket::all();
+        // get user basket
+        $basket = Basket::whereUserId($id)->first();
+
+        // get all categories
+        $categories = Category::all();
 
         // load the view and pass the baskets
-        return View::make('backoffice.basket.index')
-            ->with('baskets', $baskets);
+        return View::make('basket.index')
+            ->with('basket', $basket)
+            ->with('categories', $categories);
     }
 
     /**
@@ -53,7 +57,7 @@ class BasketController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -84,7 +88,7 @@ class BasketController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show(int $id)
@@ -100,7 +104,7 @@ class BasketController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit(int $id)
@@ -120,8 +124,8 @@ class BasketController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, int $id)
@@ -152,7 +156,7 @@ class BasketController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(int $id)
