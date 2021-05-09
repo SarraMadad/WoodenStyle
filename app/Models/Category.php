@@ -17,6 +17,11 @@ class Category extends Model
         'description',
     ];
 
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
     public static function fromName(string $name) : self
     {
         return self::whereName($name)->firstOrFail();

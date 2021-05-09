@@ -10,8 +10,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Catégories</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">Catégories</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @foreach($categories as $key => $category)
+                            <li><a class="dropdown-item" href="{{ route('client.product', ["category_id" => $category->id]) }}">{{ $category->name }}</a></li>
+                        @endforeach
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Mes commandes</a>

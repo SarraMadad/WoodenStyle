@@ -36,4 +36,6 @@ Route::domain('woodenstyle.test')->group(function () {
 
     Route::get('/', [ProductController::class, 'indexClient'])->name('client.index');
 
+    Route::get('/category/{category_id}/products', [CategoryController::class, 'associateProducts'])->name('client.product');
+
 });

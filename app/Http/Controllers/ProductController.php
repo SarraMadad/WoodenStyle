@@ -37,9 +37,14 @@ class ProductController extends Controller
         // get all products
         $products = Product::all();
 
+        // get all categories
+        $categories = Category::all();
+
         // load the view and pass the products
         return View::make('index')
+            ->with('categories', $categories)
             ->with('products', $products);
+
     }
 
     /**

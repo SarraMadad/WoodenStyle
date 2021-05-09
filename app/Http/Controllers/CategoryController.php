@@ -27,6 +27,26 @@ class CategoryController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function associateProducts(int $category_id)
+    {
+        // get all categories
+        $categories = Category::all();
+
+        // get selected category
+        $category = Category::find($category_id);
+
+        // load the view and pass the categories
+        return View::make('product')
+            ->with('products', $category->products)
+            ->with('categories', $categories)
+            ->with('category', $category);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Contracts\View\View
