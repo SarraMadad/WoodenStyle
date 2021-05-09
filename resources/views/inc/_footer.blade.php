@@ -1,8 +1,8 @@
 </main>
-<footer class="bg-dark p-4">
-    <div class="text-center text-light">
+<footer class="bg-light p-4">
+    <div class="text-center text-dark">
         © 2021 Copyright:
-        <a class="text-light" target="_blank" href="https://github.com/SarraMadad/WoodenStyle">WoodenStyle</a>
+        <a class="text-dark" target="_blank" href="https://github.com/SarraMadad/WoodenStyle">WoodenStyle</a>
     </div>
 </footer>
 

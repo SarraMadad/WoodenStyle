@@ -33,8 +33,9 @@
                         <td>{{ $product->price }} €</td>
                         <td>{{ $product->category->name ?? "N/A" }} </td>
                         <td>
-                            <a class="btn btn-small btn-outline-dark"
-                                   href="#">Ajouter au panier</a>
+                            <a class="btn btn-small btn-outline-dark" href="#">
+                                <i class="bi bi-basket"></i>
+                            </a>
 
                             <form class="mt-1" method="POST"
                                   action="#">

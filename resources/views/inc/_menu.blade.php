@@ -1,6 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #D1A56D">
     <div class="container">
-        <a class="navbar-brand" href="#">WStyle</a>
+        <a class="navbar-brand fs-2" href="{{ route('client.index') }}">
+            <img src="/img/logo.png" width="75" height="auto">
+            WStyle
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -18,7 +21,8 @@
                 </li>
             </ul>
             <div class="text-center p-3">
-                <a class="btn btn-outline-primary" href="{{ route('dashboard.index') }}">
+                <a class="btn btn-light"
+                   href="{{ route('dashboard.index') }}">
                     Espace Administrateur
                 </a>
             </div>

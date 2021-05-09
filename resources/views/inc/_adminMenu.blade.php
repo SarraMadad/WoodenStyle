@@ -24,7 +24,7 @@
                 </li>
             </ul>
             <div class="text-center p-3">
-                <a class="btn btn-outline-primary" href="{{ route('client.index') }}">
+                <a class="btn btn-light" href="{{ route('client.index') }}">
                     Espace Client
                 </a>
             </div>
