@@ -102,6 +102,7 @@
                     <tr>
                         <th> Nom</th>
                         <th> Email</th>
+                        <th> Admin</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -109,6 +110,7 @@
                         <tr>
                             <td>{{ $user->firstname . ' ' . $user->lastname }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->is_admin == 0 ? 'Non' : 'Oui' }}</td>
                         </tr>
                     @endforeach
 
