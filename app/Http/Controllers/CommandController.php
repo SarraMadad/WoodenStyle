@@ -14,7 +14,7 @@ class CommandController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -22,26 +22,26 @@ class CommandController extends Controller
         $commands = Command::all();
 
         // load the view and pass the commands
-        return View::make('backoffice.command.index')
+        return View::make('command.index')
             ->with('commands', $commands);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
         // load the create form (app/views/command/create.blade.php)
-        return View::make('backoffice.command.create');
+        return View::make('command.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return RedirectResponse
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -61,37 +61,37 @@ class CommandController extends Controller
             // store
             $command = new Command();
             $command->totalAmount = $request->totalAmount;
-            $command->user_id = $request->user_id;
+            $command->user_id = $request->user; //TODO: Get User model
             $command->product = $request->product;
             $command->status = $request->status;
             $command->save();
 
             // redirect
-            return Redirect::to('command');
+            return Redirect::to('product');
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     * @return \Illuminate\Contracts\View\View
+     * @param int $id  //\App\Models\Command  $command
+     * @return \Illuminate\Http\Response
      */
-    public function show(int $id)
+    public function show(int $id) //Command $command
     {
         // get the command
         $command = Command::find($id);
 
         // show the view and pass the command to it
-        return View::make('backoffice.command.show')
+        return View::make('command.show')
             ->with('command', $command);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
-     * @return \Illuminate\Contracts\View\View
+     * @param  int $id //\App\Models\Command  $command
+     * @return \Illuminate\Http\Response
      */
     public function edit(int $id) //Command $command
     {
@@ -99,18 +99,18 @@ class CommandController extends Controller
         $command = Command::find($id);
 
         // show the edit form and pass the product
-        return View::make('backoffice.command.edit')
+        return View::make('command.edit')
             ->with('command', $command);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param int $id
-     * @return RedirectResponse
+     * @param  \Illuminate\Http\Request  $request
+     * @param int $id  //\App\Models\Command  $command
+     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, int $id)
+    public function update(Request $request, int $id)  //Command $command
     {
         // validate
         $rules = array(
@@ -129,7 +129,7 @@ class CommandController extends Controller
             $command->totalAmount = $request->totalAmount;
             $command->product = $request->product;
             $command->status = $request->status;
-            $command->user_id = $request->user_id;
+            $command->user_id = $request->user; //TODO: Get User model
             $command->save();
 
             // redirect
@@ -140,10 +140,10 @@ class CommandController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
-     * @return RedirectResponse
+     * @param int $id //\App\Models\Command  $command
+     * @return \Illuminate\Http\Response
      */
-    public function destroy(int $id)
+    public function destroy(int $id) //Command $command
     {
         // delete
         $command = Command::find($id);
