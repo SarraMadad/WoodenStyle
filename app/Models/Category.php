@@ -16,4 +16,9 @@ class Category extends Model
         'name',
         'description',
     ];
+
+    public static function fromName(string $name) : self
+    {
+        return self::whereName($name)->firstOrFail();
+    }
 }

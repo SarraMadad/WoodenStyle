@@ -15,7 +15,16 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::factory()
-            ->count(12)
-            ->create();
+            ->create([
+                'name' => "Mobilier"
+            ]);
+        Category::factory()
+            ->create([
+                'name' => "Décoration"
+            ]);
+        Category::factory()
+            ->create([
+                'name' => "Médiéval"
+            ]);
     }
 }
