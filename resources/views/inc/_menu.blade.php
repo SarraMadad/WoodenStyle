@@ -20,7 +20,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Mes commandes</a>
+                    <a class="nav-link" href="client.command">Mes commandes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Mon panier</a>
