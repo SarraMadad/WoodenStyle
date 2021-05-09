@@ -3,7 +3,7 @@
 <body>
 <main>
 
-    @include('inc._adminMenu')
+    @include('inc._adminMenu', ['selected' => 'category'])
 
     <div class="p-5 bg-light">
         <div class="container">

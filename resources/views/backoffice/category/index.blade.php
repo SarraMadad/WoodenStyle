@@ -3,7 +3,7 @@
 <body>
 <main>
 
-    @include('inc._adminMenu')
+    @include('inc._adminMenu', ['selected' => 'category'])
 
     <div class="p-5 bg-light">
         <div class="container">
@@ -12,8 +12,10 @@
                     <h1> Catégories </h1>
                 </div>
                 <div class="col-md-3">
-                    <a class="btn btn-primary float-right" href="{{ route('category.create') }}" role="button"><i
-                            class="fa fa-plus-circle"></i> Ajouter une catégorie </a>
+                    <a class="btn btn-primary float-right" href="{{ route('category.create') }}" role="button">
+                        <i class="fa fa-plus-circle"></i>
+                        Ajouter une catégorie
+                    </a>
                 </div>
             </div>
         </div>

@@ -3,7 +3,8 @@
 <body>
 <main>
 
-    @include('inc._menu')
+    @include('inc._menu', ['selected' => 'category'])
+
     <div class="p-5 bg-light">
         <div class="container">
             <div class="row">

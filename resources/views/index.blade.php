@@ -3,7 +3,7 @@
 <body>
 <main>
 
-    @include('inc._menu')
+    @include('inc._menu', ['selected' => ''])
 
     <div class="p-5 bg-light">
         <div class="container">
