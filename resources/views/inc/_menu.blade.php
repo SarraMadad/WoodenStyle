@@ -31,6 +31,10 @@
                    href="{{ route('dashboard.index') }}">
                     Espace Administrateur
                 </a>
+                <a class="btn btn-light"
+                   href="{{ route('client.login') }}">
+                    Connexion
+                </a>
             </div>
         </div>
     </div>
