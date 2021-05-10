@@ -52,7 +52,7 @@ class UserController extends Controller
             'email' => 'nullable|string',
             'address' => 'required|string',
             'password' => 'required|string',
-            'is_admin' => 'required|boolean' //TODO: check exists
+            'is_admin' => 'required|boolean'
         );
         $validator = Validator::make($request->all(), $rules);
 
@@ -67,7 +67,7 @@ class UserController extends Controller
             $user->lastname = $request->lastname;
             $user->email = $request->email;
             $user->address = $request->address;
-            $user->password = $request->password;
+            $user->password = bcrypt($request->password);
             $user->is_admin = $request->is_admin;
             $user->save();
 

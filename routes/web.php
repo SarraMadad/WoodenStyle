@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\CommandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
@@ -36,9 +37,19 @@ Route::prefix('backoffice')->group(function () {
 
 Route::get('/', [ProductController::class, 'indexClient'])->name('client.index');
 
-Route::get('/register', [AuthController::class, 'indexClient'])->name('client.register');
+// REGISTER
+Route::get('/register', [RegistrationController::class, 'create'])->name('client.register.create');
 
-Route::get('/login', [AuthController::class, 'indexClient'])->name('client.login');
+Route::post('/register', [RegistrationController::class, 'store'])->name('client.register.store');
+
+// LOGIN
+Route::get('/login', [SessionsController::class, 'create'])->name('client.login.create');
+
+Route::post('/login', [SessionsController::class, 'store'])->name('client.login.store');
+
+Route::get('/logout', [SessionsController::class, 'destroy'])->name('client.login.destroy');
+
+
 
 Route::get('/category/{category_id}/products', [CategoryController::class, 'associateProducts'])->name('client.product');
 

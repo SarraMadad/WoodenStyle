@@ -28,7 +28,7 @@ class UserFactory extends Factory
             'lastname' => $this->faker->lastName(),
             'email' => $this->faker->email,
             'address' => $this->faker->word(),
-            'password' => Hash::make($this->faker->password), // encrypt password
+            'password' => bcrypt($this->faker->password),
             'is_admin' => $this->faker->boolean(),
         ];
     }

@@ -3,22 +3,36 @@
 <body>
 <main>
 
-@include('inc._menu', ['selected' => ''])
+    @include('inc._menu', ['selected' => ''])
 
-    <form>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <div class="p-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <h1> Connexion </h1>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="container p-5">
+        <div class="row">
+            <form class="padding-md-4" method="POST" action="{{ route('client.login.store') }}">
+                @method('POST')
+                @csrf
+                <div class="mb-3">
+                    <label for="exampleInputEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail" name="email"
+                           aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="exampleInputPassword" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary ">Se connecter</button>
+            </form>
+            <a type="submit" class="btn btn-link" href="{{ route('client.register.create') }}"> Créer un compte </a>
         </div>
-        <button type="submit" class="btn btn-light">Se connecter</button>
-        <button type="submit" class="btn btn-light" href="{{ route('register.login') }}>Créer un compte</button>
-    </form>
-
+    </div>
 
 
 @include('.inc._footer')
