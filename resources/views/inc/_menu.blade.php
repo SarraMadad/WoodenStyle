@@ -25,15 +25,17 @@
                         @endforeach
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <!-- Get current user -->
-                    <a class="nav-link {{ $selected == "command" ? 'active' : '' }}"
-                       href="{{ route('client.command', ["user_id" => "1"]) }}">Mes commandes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ $selected == "basket" ? 'active' : '' }}"
-                       href="{{ route('client.basket.show', ["user_id" => "1"]) }}">Mon panier</a>
-                </li>
+                @if( auth()->check() )
+                    <li class="nav-item">
+                        <!-- Get current user -->
+                        <a class="nav-link {{ $selected == "command" ? 'active' : '' }}"
+                           href="{{ route('client.command', ["user_id" => auth()->user()->id]) }}">Mes commandes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ $selected == "basket" ? 'active' : '' }}"
+                           href="{{ route('client.basket.show', ["user_id" => auth()->user()->id]) }}">Mon panier</a>
+                    </li>
+                @endif
             </ul>
             <div class="text-center p-3">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">

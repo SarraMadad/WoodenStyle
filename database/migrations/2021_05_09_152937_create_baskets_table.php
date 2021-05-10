@@ -15,7 +15,7 @@ class CreateBasketsTable extends Migration
     {
         Schema::create('baskets', function (Blueprint $table) {
             $table->id();
-            $table->float("totalAmount");
+            $table->float("totalAmount")->default(0);
             $table->foreignId("user_id");
             $table->timestamps();
         });

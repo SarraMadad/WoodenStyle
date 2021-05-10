@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Basket;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -30,7 +31,7 @@ class RegistrationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -50,8 +51,8 @@ class RegistrationController extends Controller
         }
 
         // store
-        $user = new User();
         $user = User::create(request(['firstname', 'lastname', 'email', 'address', 'password']));
+        Basket::create(["user_id" => $user->id]);
 
         // login user
         auth()->login($user);
