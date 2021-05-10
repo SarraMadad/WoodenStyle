@@ -54,8 +54,16 @@
 
                 </tbody>
             </table>
-            <a class="btn btn-small btn-success"
-               href="#">Payer</a>
+            <form class="mt-1" method="POST"
+                  action="{{route('client.command.store', ["basket" => $basket])}}">
+                @csrf
+                @method('POST')
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-outline-success"
+                           value="Payer">
+                </div>
+            </form>
 
         </div>
     </div>

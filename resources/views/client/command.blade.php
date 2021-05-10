@@ -21,8 +21,8 @@
                 <tr>
                     <th scope="col"> Numéro de commande</th>
                     <th scope="col"> Montant total</th>
+                    <th scope="col"> Statut</th>
                     <th scope="col"> Date</th>
-                    <th scope="col"> Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -30,12 +30,9 @@
                 @foreach($commands as $key => $command)
                     <tr>
                         <td>{{ $command->id }} </td>
-                        <td>{{ $command->totalAmount }} € </td>
+                        <td>{{ $command->totalAmount }} €</td>
+                        <td>{{ $command->status }} </td>
                         <td>{{ $command->created_at }} </td>
-                        <td>
-                            <a class="btn btn-small btn-outline-dark"
-                               href="#">Details</a>
-                        </td>
                     </tr>
                 @endforeach
 

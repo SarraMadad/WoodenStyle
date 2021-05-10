@@ -50,10 +50,12 @@ Route::post('/login', [SessionsController::class, 'store'])->name('client.login.
 Route::get('/logout', [SessionsController::class, 'destroy'])->name('client.login.destroy');
 
 
-
 Route::get('/category/{category_id}/products', [CategoryController::class, 'associateProducts'])->name('client.product');
 
+
 Route::get('{user_id}/command', [CommandController::class, 'indexUserCommand'])->name('client.command');
+
+Route::post('/command', [CommandController::class, 'store'])->name('client.command.store');
 
 Route::get('{user_id}/basket', [BasketController::class, 'show'])->name('client.basket.show');
 
