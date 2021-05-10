@@ -26,5 +26,15 @@ class UserSeeder extends Seeder
                 'password' => 'admin',
                 'is_admin' => '1'
             ]);
+
+        User::factory()
+            ->create([
+                'firstname' => 'Sarra',
+                'lastname' => 'Madad',
+                'email' => 'sarra@sarra.fr',
+                'address' => 'ESIEA',
+                'password' => 'sarra',
+                'is_admin' => '0'
+            ]);
     }
 }
