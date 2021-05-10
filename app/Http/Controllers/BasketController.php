@@ -22,7 +22,7 @@ class BasketController extends Controller
         $categories = Category::all();
 
         // load the view and pass the baskets
-        return View::make('basket.show')
+        return View::make('client.basket')
             ->with('basket', $basket)
             ->with('categories', $categories);
     }

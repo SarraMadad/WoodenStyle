@@ -40,7 +40,7 @@ class CategoryController extends Controller
         $category = Category::find($category_id);
 
         // load the view and pass the categories
-        return View::make('product')
+        return View::make('client.product')
             ->with('products', $category->products)
             ->with('categories', $categories)
             ->with('category', $category);

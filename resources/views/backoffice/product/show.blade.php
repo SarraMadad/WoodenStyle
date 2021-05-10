@@ -2,7 +2,7 @@
 
 <body>
 <main>
-    @include('inc._adminMenu', ['selected' => 'product'])
+    @include('inc._adminMenu', ['selected' => 'client.product'])
 
     <div class="p-5 bg-light">
         <div class="container">

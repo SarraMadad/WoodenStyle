@@ -41,7 +41,7 @@ class CommandController extends Controller
         $commands = Command::whereUserId($id)->get();
 
         // load the view and pass the commands
-        return View::make('command')
+        return View::make('client.command')
             ->with('commands', $commands)
             ->with('categories', $categories);
     }

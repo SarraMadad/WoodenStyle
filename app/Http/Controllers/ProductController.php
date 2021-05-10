@@ -41,7 +41,7 @@ class ProductController extends Controller
         $categories = Category::all();
 
         // load the view and pass the products
-        return View::make('index')
+        return View::make('client.index')
             ->with('categories', $categories)
             ->with('products', $products);
 

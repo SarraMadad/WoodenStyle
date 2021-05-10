@@ -1,15 +1,15 @@
-@include('.inc._header')
+@include('inc._header')
 
 <body>
 <main>
 
-    @include('inc._menu', ['selected' => ''])
+    @include('inc._menu', ['selected' => 'catalog'])
 
     <div class="p-5 bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <h1> Produits </h1>
+                    <h1> Catalogue </h1>
                 </div>
             </div>
         </div>
@@ -60,4 +60,4 @@
         </div>
     </div>
 
-@include('.inc._footer')
+@include('inc._footer')
