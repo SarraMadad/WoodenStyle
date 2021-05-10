@@ -44,5 +44,4 @@ Route::get('/category/{category_id}/products', [CategoryController::class, 'asso
 
 Route::get('{user_id}/command', [CommandController::class, 'indexUserCommand'])->name('client.command');
 
-Route::get('{user_id}/basket', [BasketController::class, 'indexUserBasket'])->name('client.basket.index');
-
+Route::get('{user_id}/basket', [BasketController::class, 'show'])->name('client.basket.show');

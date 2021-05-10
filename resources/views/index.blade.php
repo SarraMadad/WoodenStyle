@@ -33,9 +33,13 @@
                         <td>{{ $product->price }} €</td>
                         <td>{{ $product->category->name ?? "N/A" }} </td>
                         <td>
-                            <a class="btn btn-small btn-outline-dark" href="#">
-                                <i class="bi bi-basket"></i>
-                            </a>
+                            <form class="mt-1" method="POST"
+                                  action="#">
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-outline-primary"
+                                           value="Ajouter au panier">
+                                </div>
+                            </form>
 
                             <form class="mt-1" method="POST"
                                   action="#">
@@ -43,7 +47,7 @@
                                 @method('DELETE')
 
                                 <div class="form-group">
-                                    <input type="submit" class="btn btn-outline-danger delete-user"
+                                    <input type="submit" class="btn btn-outline-danger"
                                            value="Supprimer du panier">
                                 </div>
                             </form>

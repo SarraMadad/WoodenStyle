@@ -12,8 +12,7 @@ class Basket extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'totalAmount',
-        'user_id'
+        'user_id' //TODO: remove
     ];
 
     public function products()

@@ -24,7 +24,7 @@
                     <a class="nav-link {{ $selected == "command" ? 'active' : '' }}" href="{{ route('client.command', ["user_id" => "1"]) }}">Mes commandes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $selected == "basket" ? 'active' : '' }}" href="{{ route('client.basket.index', ["user_id" => "1"]) }}">Mon panier</a>
+                    <a class="nav-link {{ $selected == "basket" ? 'active' : '' }}" href="{{ route('client.basket.show', ["user_id" => "1"]) }}">Mon panier</a>
                 </li>
             </ul>
             <div class="text-center p-3">
