@@ -74,7 +74,7 @@ class CommandController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('command/create')
+            return Redirect::to('backoffice/command/create')
                 ->withErrors($validator);
 
         } else {
@@ -87,7 +87,7 @@ class CommandController extends Controller
             $command->save();
 
             // redirect
-            return Redirect::to('product');
+            return Redirect::to('backoffice/product');
         }
     }
 
@@ -141,7 +141,7 @@ class CommandController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('command/' . $id . '/edit')
+            return Redirect::to('backoffice/command/' . $id . '/edit')
                 ->withErrors($validator);
         } else {
             // store
@@ -153,7 +153,7 @@ class CommandController extends Controller
             $command->save();
 
             // redirect
-            return Redirect::to('command');
+            return Redirect::to('backoffice/command');
         }
     }
 
@@ -170,6 +170,6 @@ class CommandController extends Controller
         $command->delete();
 
         // redirect
-        return Redirect::to('command');
+        return Redirect::to('backoffice/command');
     }
 }

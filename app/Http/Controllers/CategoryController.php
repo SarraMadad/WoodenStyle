@@ -84,7 +84,7 @@ class CategoryController extends Controller
             $category->save();
 
             // redirect
-            return Redirect::to('category');
+            return Redirect::to('backoffice/category');
         }
     }
 
@@ -137,7 +137,7 @@ class CategoryController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('category/' . $id . '/edit')
+            return Redirect::to('backoffice/category/' . $id . '/edit')
                 ->withErrors($validator);
         } else {
             // store
@@ -147,7 +147,7 @@ class CategoryController extends Controller
             $category->save();
 
             // redirect
-            return Redirect::to('category');
+            return Redirect::to('backoffice/category');
         }
     }
 
@@ -164,6 +164,6 @@ class CategoryController extends Controller
         $category->delete();
 
         // redirect
-        return Redirect::to('category');
+        return Redirect::to('backoffice/category');
     }
 }

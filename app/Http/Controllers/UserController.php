@@ -57,7 +57,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('user/create')
+            return Redirect::to('backoffice/user/create')
                 ->withErrors($validator);
 
         } else {
@@ -72,7 +72,7 @@ class UserController extends Controller
             $user->save();
 
             // redirect
-            return Redirect::to('user');
+            return Redirect::to('backoffice/user');
         }
     }
 
@@ -129,7 +129,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('user/' . $id . '/edit')
+            return Redirect::to('backoffice/user/' . $id . '/edit')
                 ->withErrors($validator);
         } else {
             // store
@@ -143,7 +143,7 @@ class UserController extends Controller
             $user->save();
 
             // redirect
-            return Redirect::to('user');
+            return Redirect::to('backoffice/user');
         }
     }
 
@@ -160,6 +160,6 @@ class UserController extends Controller
         $user->delete();
 
         // redirect
-        return Redirect::to('user');
+        return Redirect::to('backoffice/user');
     }
 }

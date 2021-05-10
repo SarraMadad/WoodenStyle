@@ -81,7 +81,7 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('product/create')
+            return Redirect::to('backoffice/product/create')
                 ->withErrors($validator);
 
         } else {
@@ -95,7 +95,7 @@ class ProductController extends Controller
             $product->save();
 
             // redirect
-            return Redirect::to('product');
+            return Redirect::to('backoffice/product');
         }
     }
 
@@ -166,7 +166,7 @@ class ProductController extends Controller
             $product->save();
 
             // redirect
-            return Redirect::to('product');
+            return Redirect::to('backoffice/product');
         }
     }
 
@@ -183,6 +183,6 @@ class ProductController extends Controller
         $product->delete();
 
         // redirect
-        return Redirect::to('product');
+        return Redirect::to('backoffice/product');
     }
 }
