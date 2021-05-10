@@ -44,7 +44,7 @@
                     </tr>
                     <tr>
                         <td> Est administrateur ?</td>
-                        <td> {{ $user->is_admin }} </td>
+                        <td> {{ $user->is_admin == 0 ? 'Non' : 'Oui' }} </td>
                     </tr>
                 </table>
             </div>
