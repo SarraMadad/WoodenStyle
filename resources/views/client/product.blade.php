@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <h1> Catégorie  {{ $category->name }} </h1>
+                    <h1> Catégorie {{ $category->name }} </h1>
                 </div>
             </div>
         </div>
@@ -22,7 +22,9 @@
                     <th scope="col"> Nom</th>
                     <th scope="col"> Prix</th>
                     <th scope="col"> Catégorie</th>
-                    <th scope="col"> Actions</th>
+                    @if( auth()->check() )
+                        <th scope="col"> Actions</th>
+                    @endif
                 </tr>
                 </thead>
                 <tbody>
@@ -32,22 +34,30 @@
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->price }} €</td>
                         <td>{{ $product->category->name ?? "N/A" }} </td>
-                        <td>
-                            <a class="btn btn-small btn-outline-dark" href="#">
-                                <i class="bi bi-basket"></i>
-                            </a>
+                        @if( auth()->check() )
+                            <td>
+                                <form class="mt-1" method="POST"
+                                      action="{{route('client.basket.add', ["user_id" => auth()->user(), "product" => $product])}}">
+                                    @method('POST')
+                                    @csrf
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-outline-primary"
+                                               value="Ajouter au panier">
+                                    </div>
+                                </form>
 
-                            <form class="mt-1" method="POST"
-                                  action="#">
-                                @csrf
-                                @method('DELETE')
+                                <form class="mt-1" method="POST"
+                                      action="{{route('client.basket.remove', ["user_id" => auth()->user(), "product" => $product])}}">
+                                    @csrf
+                                    @method('POST')
 
-                                <div class="form-group">
-                                    <input type="submit" class="btn btn-outline-danger delete-user"
-                                           value="Supprimer du panier">
-                                </div>
-                            </form>
-                        </td>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-outline-danger"
+                                               value="Supprimer du panier">
+                                    </div>
+                                </form>
+                            </td>
+                        @endif
                     </tr>
                 @endforeach
 

@@ -33,13 +33,13 @@
                             <td>{{ $product->price }} €</td>
                             <td>
                                 <form class="mt-1" method="POST"
-                                      action="#">
+                                      action="{{route('client.basket.remove', ["user_id" => auth()->user(), "product" => $product])}}">
                                     @csrf
-                                    @method('DELETE')
+                                    @method('POST')
 
                                     <div class="form-group">
-                                        <input type="submit" class="btn btn-outline-danger delete-user"
-                                               value="Supprimer">
+                                        <input type="submit" class="btn btn-outline-danger"
+                                               value="Supprimer du panier">
                                     </div>
                                 </form>
                             </td>

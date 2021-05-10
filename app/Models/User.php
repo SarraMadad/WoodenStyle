@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
+    public function basket()
+    {
+        return $this->hasOne(Basket::class)->withDefault();
+    }
 }

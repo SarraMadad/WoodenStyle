@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Basket;
 use App\Models\Category;
+use App\Models\Product;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
 class BasketController extends Controller
@@ -27,22 +31,47 @@ class BasketController extends Controller
             ->with('categories', $categories);
     }
 
-    public function addProduct($request, $id)
+    /**
+     * @param Request $request
+     * @param $userId
+     * @return RedirectResponse
+     */
+    public function addProduct(Request $request, $userId)
     {
-        //TODO: fais des trucs
+        $basket = Basket::whereUserId($userId)->first();
+        $product = Product::find($request->only(['product']));
+
+        $basket->products()->attach($product);
+        $this->updateTotalAmount($basket);
+
+        return Redirect::to($userId . '/basket');
     }
 
-    public function removeproduct($request, $id)
+    /**
+     * @param Request $request
+     * @param $userId
+     * @return RedirectResponse
+     */
+    public function removeproduct(Request $request, $userId)
     {
-        //TODO: fais des trucs
+        $basket = Basket::whereUserId($userId)->first();
+        $product = Product::find($request->only(['product']));
+
+        $basket->products()->detach($product);
+        $this->updateTotalAmount($basket);
+
+        return Redirect::to($userId . '/basket');
     }
 
-    private function updateTotalAmount($id)
+    private function updateTotalAmount(Basket $basket)
     {
-        //TODO update totalAmount
+        $total = 0;
+        $products = $basket->products()->get();
 
-        $basket = Basket::find($id);
-        $basket->totalAmount = 0; //Calculate auto totalAmount based on basket product
+        foreach ($products as $product) {
+            $total += $product->price;
+        }
+        $basket->totalAmount = $total;
         $basket->save();
     }
 }
